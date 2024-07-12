@@ -1,11 +1,11 @@
 # Local file resource to create the zip file
 resource "null_resource" "zip_files" {
   provisioner "local-exec" {
-    command = "zip -r ${var.zip_file} ${var.source_directory}*"
+    command = "cd ${var.source_directory} && zip -r ${path.module}/${var.zip_file} ."
   }
 
   triggers = {
-    files_hash = md5(join(",", data.external.list_files.result["files"]))
+    always_run = timestamp()
   }
 }
 

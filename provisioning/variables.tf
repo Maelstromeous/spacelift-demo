@@ -7,7 +7,7 @@ variable "bucket_name" {
 variable "source_directory" {
   description = "The directory to be zipped and uploaded to S3"
   type        = string
-  default     = "../"  # The directory above the current directory
+  default     = "../app"  # The directory above the current directory
 }
 
 variable "tags" {
