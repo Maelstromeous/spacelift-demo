@@ -17,3 +17,7 @@ resource "aws_s3_bucket" "app_bucket_pr" {
   bucket = "matts-lovely-test-bucket-demo"
   tags   = var.tags
 }
+  
+resource "aws_s3_bucket" "foo" {
+  bucket = "maelstromeous-foo-123456"
+}
