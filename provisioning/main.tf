@@ -10,13 +10,13 @@ resource "null_resource" "zip_files" {
 }
 
 # S3 bucket
-resource "aws_s3_bucket" "bucket" {
+resource "aws_s3_bucket" "app_bucket" {
   bucket = var.bucket_name
   tags   = var.tags
 }
 
 resource "aws_s3_bucket_acl" "acl" {
-  bucket = aws_s3_bucket.bucket.id
+  bucket = aws_s3_bucket.app_bucket.id
   acl    = "private"
 }
 
@@ -24,7 +24,7 @@ resource "aws_s3_bucket_acl" "acl" {
 resource "aws_s3_object" "upload_zip" {
   depends_on = [null_resource.zip_files]
 
-  bucket = aws_s3_bucket.bucket
+  bucket = aws_s3_bucket.app_bucket.bucket
   key    = var.zip_file
   source = "${path.module}/${var.zip_file}"
   server_side_encryption = "AES256"
