@@ -1,7 +1,7 @@
 # Local file resource to create the zip file
 resource "null_resource" "zip_files" {
   provisioner "local-exec" {
-    command = "cd ${var.source_directory} && zip -r ${path.module}/${var.zip_file} ."
+    command = "cd ${var.source_directory} && zip -r ${path.module}/${var.zip_file} src"
   }
 
   triggers = {
