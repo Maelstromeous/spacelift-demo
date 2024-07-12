@@ -4,12 +4,6 @@ variable "bucket_name" {
   default = "maelstrome-spacelift-demo"
 }
 
-variable "region" {
-  type = string
-  description = "Region to deploy the bucket to"
-  default = "eu-west-2"
-}
-
 variable "source_directory" {
   description = "The directory to be zipped and uploaded to S3"
   type        = string

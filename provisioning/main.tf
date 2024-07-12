@@ -12,7 +12,6 @@ resource "null_resource" "zip_files" {
 # S3 bucket
 resource "aws_s3_bucket" "bucket" {
   bucket = var.bucket_name
-  region = var.region
   tags   = var.tags
 }
 
