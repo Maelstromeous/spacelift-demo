@@ -11,3 +11,7 @@ resource "aws_s3_object" "upload_zip" {
   source = "../app.zip"
   server_side_encryption = "AES256"
 }
+
+resource "aws_s3_bucket" "foo" {
+  bucket = "maelstromeous-foo-123456"
+}
