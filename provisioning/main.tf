@@ -13,7 +13,7 @@ resource "aws_s3_object" "upload_zip" {
 }
 
 # S3 bucket 2
-resource "aws_s3_bucket" "app_bucket" {
+resource "aws_s3_bucket" "app_bucket_pr" {
   bucket = "matts-lovely-test-bucket-demo"
   tags   = var.tags
 }
